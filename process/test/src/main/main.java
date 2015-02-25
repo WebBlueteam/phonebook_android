@@ -2,25 +2,38 @@ package main;
 
 import java.util.ArrayList;
 import java.util.List;
-
+class Prefix{
+	String ma_cu;
+	String ma_moi;
+	public Prefix(String old,String news) {
+		ma_cu = old;
+		ma_moi = news;
+	}
+}
 public class main {
-	
 	private static final String[] DEFAULT_COUNTRY_CODE_VN = {"+84", "084", "84"};
-	
+	/**
+	 * check mobile phone
+	 * @param nums
+	 * @param phone
+	 * @return list phone is not mobile phone
+	 */
 	public List<String> check(List<String>nums,List<String> phone){
 		List<String> temp = new ArrayList<String>();
 		for( int i=0 ; i < phone.size() ; i++ ){
-			System.out.print(removeCountryCode(phone.get(i)) + "\n");
+			int k = 0;
 			for(int j=0;j<nums.size();j++){
 				if( phone.get(i).startsWith(nums.get(j)) == true ){
-					temp.add(phone.get(i));
+					k++;
 					break;
 				}
+			}
+			if( k == 0 ){
+				temp.add(phone.get(i));
 			}
 		}
 		return temp;
 	}
-	
 	public String removeCountryCode(String phoneNumber) {
 		for(int i = 0; i < DEFAULT_COUNTRY_CODE_VN.length; i++) {
 			if(phoneNumber.startsWith(DEFAULT_COUNTRY_CODE_VN[i])) {
@@ -29,9 +42,27 @@ public class main {
 		}
 		return phoneNumber;
 	}
-	
+	/**
+	 * get edit contact
+	 * @param pre
+	 * @param Number
+	 * @return
+	 */
+	public List<String> editContact(List<Prefix> pre,List<String> Number ){
+		List<String>ContactPrefix = new ArrayList<String>();
+		for(int i=0 ;i< Number.size();i++){
+			for(int j=0;j< pre.size();j++){
+				if(Number.get(i).startsWith(pre.get(j).ma_cu) == true ){
+					String new_phone = pre.get(j).ma_moi+Number.get(i).substring(pre.get(j).ma_cu.length());
+					ContactPrefix.add(new_phone);
+				}
+			}
+		}
+		return ContactPrefix;
+	}
 	public static void main(String[] agrs){
 		main a = new main();
+		// list prefix mobile phone get from file json
 		List<String> p = new ArrayList<String>();
 		p.add("091");
 		p.add("094");
@@ -45,7 +76,7 @@ public class main {
 		p.add("0120");
 		p.add("0121");
 		p.add("0122");
-		// phone 
+		// phone phone get from contact
 		List<String> phoneNumber = new ArrayList<String>();
 		phoneNumber.add("01212199614"); // di dong 1
 		phoneNumber.add("01265040909");// di dong 2
@@ -54,10 +85,23 @@ public class main {
 		phoneNumber.add("0916521979");// di dong 3
 		phoneNumber.add("0946521973");// di dong 4
 		phoneNumber.add("0936521978");// di dong 5
-		phoneNumber.add("+843920350");
-		phoneNumber.add("0843920350");
-		phoneNumber.add("843920350");
-		a.check(p,phoneNumber);
+		List<String> Number = a.check(p,phoneNumber);
+		// list prefix get from json
+		List<Prefix> pre = new ArrayList<Prefix>();
+		pre.add(new Prefix("076","296"));
+		pre.add(new Prefix("064","254"));
+		pre.add(new Prefix("0240","204"));
+		pre.add(new Prefix("0781","291"));
+		pre.add(new Prefix("0241","222"));
+		pre.add(new Prefix("075","275"));
+		pre.add(new Prefix("056","256"));
+		pre.add(new Prefix("072","272"));
+		pre.add(new Prefix("08","28"));
+		//
+		List<String> result = a.editContact(pre, Number);
+		for(int i =0; i< result.size();i++){
+			System.out.println(result.get(i));
+		}
 	}
 	
 }
