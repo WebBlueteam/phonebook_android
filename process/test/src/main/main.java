@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 class Prefix {
-	String ma_cu;
-	String ma_moi;
+	String codeCityOld;
+	String codeCityNew;
 
 	public Prefix(String old, String news) {
-		ma_cu = old;
-		ma_moi = news;
+		codeCityOld = old;
+		codeCityNew = news;
 	}
 }
 
@@ -26,12 +26,13 @@ public class main {
 	 * @param phone
 	 * @return list phone is not mobile phone
 	 */
-	public List<String> check(List<String> phone) {
+	public List<String> filterPhoneHomeList(List<String> phone) {
 		List<String> temp = new ArrayList<String>();
 		for (int i = 0; i < phone.size(); i++) {
 			int k = 0;
 			for (int j = 0; j < DEFAULT_MOBILE_CODE_VN.length; j++) {
-				if (phone.get(i).startsWith(DEFAULT_MOBILE_CODE_VN[j])) {
+				String newPhoneNumber = removeCountryCode(phone.get(i));
+				if (newPhoneNumber.startsWith(DEFAULT_MOBILE_CODE_VN[j])) {
 					k++;
 					break;
 				}
@@ -84,9 +85,9 @@ public class main {
 	 */
 	public String editContact(List<Prefix> prefix, String phoneNumber) {
 		for (int j = 0; j < prefix.size(); j++) {
-			if (phoneNumber.startsWith(prefix.get(j).ma_cu)) {
-				String new_phone = prefix.get(j).ma_moi
-						+ phoneNumber.substring(prefix.get(j).ma_cu.length());
+			if (phoneNumber.startsWith(prefix.get(j).codeCityOld)) {
+				String new_phone = prefix.get(j).codeCityNew
+						+ phoneNumber.substring(prefix.get(j).codeCityOld.length());
 				return new_phone;
 			}
 		}
@@ -109,7 +110,7 @@ public class main {
 		phoneNumber.add("0916521979");// di dong 3
 		phoneNumber.add("0946521973");// di dong 4
 		phoneNumber.add("0936521978");// di dong 5
-		List<String> Number = a.check(phoneNumber);
+		List<String> Number = a.filterPhoneHomeList(phoneNumber);
 
 		// list prefix get from json
 		List<Prefix> pre = new ArrayList<Prefix>();
