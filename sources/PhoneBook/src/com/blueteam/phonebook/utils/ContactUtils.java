@@ -175,8 +175,9 @@ public class ContactUtils {
 	 */
 	public static boolean backupContactList(Context context, List<ContactObject> listContact){
 		File file = new File(context.getFilesDir(), Constants.BACKUP_CONTACT_FILE_NAME);
+		FileWriter writer = null;
 		try {
-			FileWriter writer = new FileWriter(file);
+			writer = new FileWriter(file);
 			if(listContact != null){
 				for(ContactObject contact: listContact){
 					writer.append(contact.getId().toString());
@@ -189,12 +190,18 @@ public class ContactUtils {
 					writer.append(Constants.NEW_LINE_SEPARATOR);
 				}
 			}
-			writer.flush();
-		    writer.close();
 		    return true;
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}finally{
+			try {
+				writer.flush();
+				writer.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		return false;
 	}
@@ -213,7 +220,6 @@ public class ContactUtils {
 			String line = "";
 			try {
 	            fileReader = new BufferedReader(new FileReader(file));
-	            fileReader.readLine();
 	            while ((line = fileReader.readLine()) != null) {
 	                String[] tokens = line.split(Constants.COMMA_DELIMITER);
 	                if (tokens.length > 0) {
@@ -223,11 +229,19 @@ public class ContactUtils {
 	                	for(int i = 1; i < tokens.length; i++){
 	                		phoneNumber.add(tokens[i]);
 	                	}
+	                	contact.setListPhoneNumber(phoneNumber);
 	                	listContact.add(contact);
 					}
 	            }
 			} catch (Exception e) {
 				// TODO: handle exception
+			}finally{
+				try {
+					fileReader.close();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 		}
 		return listContact;

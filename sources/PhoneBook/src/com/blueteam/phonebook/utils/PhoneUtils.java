@@ -103,8 +103,8 @@ public class PhoneUtils {
 		List<String> ContactPrefix = new ArrayList<String>();
 		if(pre != null && Number != null){
 			for (int i = 0; i < Number.size(); i++) {
-				ContactPrefix
-						.add(editPhone(pre, removeCountryCode(Number.get(i))));
+				String tmp = normalizePhoneNumber(Number.get(i));
+				ContactPrefix.add(editPhone(pre, removeCountryCode(tmp)));
 			}
 		}
 		return ContactPrefix;
@@ -127,4 +127,13 @@ public class PhoneUtils {
 		}
 		return phoneNumber;
 	}
+
+	public String normalizePhoneNumber(String iPhoneNumber){
+    	String iReplace = iPhoneNumber.replace("(", " ");
+		String iReplace1 = iReplace.replace(")", " ");
+		String iReplace2 = iReplace1.replace("-", " ");
+		String iReplace3 = iReplace2.replace(" ", "");
+		String iPhoneOutput = iReplace3.trim();
+    	return iPhoneOutput;
+    }
 }
