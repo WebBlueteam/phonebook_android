@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="20dp"
+    android:background="#fff"
+    android:orientation="vertical" >
+    <TextView 
+        android:id="@+id/item_name_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/text_size_52_point" 
+        android:textColor="#07c"
+        android:text="Sao lưu từ 25/12/2015 21:33"/>
+    <TextView 
+        android:id="@+id/item_size_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/text_size_48_point" 
+        android:textColor="#666"
+        android:text="Dữ liệu sao lưu: 12KB"/>
+    <TextView 
+        android:id="@+id/item_address_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/text_size_48_point" 
+        android:textColor="#666"
+        android:text="/storage/sdcard/backup/Data/bkcontact"/>
+
+</LinearLayout>
