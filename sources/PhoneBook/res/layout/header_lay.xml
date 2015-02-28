@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/header_height_size"
+    android:background="@color/bg_header"
+    android:gravity="center_vertical"
+    android:paddingLeft="10dp" >
+
+    <LinearLayout
+        android:id="@+id/common_title_lay_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_toLeftOf="@+id/common_header_icon_search_id"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:id="@+id/common_header_icon_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@null"
+            android:paddingRight="10dp" />
+
+        <TextView
+            android:id="@+id/common_header_title_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:text="@string/header_text_str"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_48_point" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/common_header_icon_search_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_gravity="right"
+        android:contentDescription="@null"
+        android:visibility="gone" />
+
+</RelativeLayout>

@@ -1,17 +1,25 @@
 /*
- * 
+ *
  */
 package com.blueteam.phonebook;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import com.blueteam.phonebook.fragments.MainChangePhoneFragment;
+import com.blueteam.phonebook.utils.Constants;
 
 // TODO: Auto-generated Javadoc
 /**
  * The Class MainActivity.
  */
+@SuppressLint("NewApi")
+
 public class MainActivity extends Activity {
 
 	/* (non-Javadoc)
@@ -21,6 +29,7 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		startMainFragment();
 	}
 
 	/* (non-Javadoc)
@@ -46,5 +55,29 @@ public class MainActivity extends Activity {
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
+	}
+
+	/**
+	 * Start fragment.
+	 *
+	 * @param fragment the fragment
+	 * @param isAddBackStack the is add back stack
+	 * @param tag the tag
+	 */
+	private void startFragment(Fragment fragment, boolean isAddBackStack, String tag){
+		FragmentTransaction transaction = getFragmentManager().beginTransaction();
+		transaction.replace(R.id.fragment_container, fragment, tag);
+		if(isAddBackStack){
+			transaction.addToBackStack(null);
+		}
+		transaction.commit();
+	}
+
+	/**
+	 * Start main fragment.
+	 */
+	public void startMainFragment(){
+		MainChangePhoneFragment fragment = new MainChangePhoneFragment();
+		startFragment(fragment, false, Constants.TAG_MAIN_FRAGMENT);
 	}
 }

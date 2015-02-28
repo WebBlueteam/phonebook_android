@@ -20,4 +20,7 @@ public class Constants {
 
 	/** The Constant NEW_LINE_SEPARATOR. */
 	public static final String NEW_LINE_SEPARATOR = "\n";
+
+	/** The Constant TAG_MAIN_FRAGMENT. */
+	public static final String TAG_MAIN_FRAGMENT = "main_fragment";
 }

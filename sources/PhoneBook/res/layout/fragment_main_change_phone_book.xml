@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/prefix_backup_id"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical" >
+
+        <include layout="@layout/header_lay" />
+        
+        <TextView
+            android:id="@+id/prefix_list_contact_status_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#d1d5d0"
+            android:padding="10dp"
+            android:text="@string/prefix_text_changed_str"
+            android:textSize="@dimen/text_size_48_point" />
+
+        <ListView
+            android:id="@+id/prefix_list_contact_id"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent" >
+        </ListView>
+    </LinearLayout>
+    <Button
+        android:id="@+id/restore_list_phone_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/adView"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="10dp"
+        android:background="@drawable/common_button_color_default_dra"
+        android:padding="10dp"
+        android:text="@string/restore_list_phone_str"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_52_point"
+        android:visibility="gone"/>
+
+    <Button
+        android:id="@+id/prefix_start_update_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/restore_list_phone_id"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="10dp"
+        android:background="@drawable/common_button_color_default_dra"
+        android:padding="10dp"
+        android:text="@string/prefix_button_changed_str"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_52_point" />
+
+    <CheckBox
+        android:id="@+id/prefix_backup_id"
+        android:layout_above="@id/prefix_start_update_id"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#c6ecfb"
+        android:padding="10dp"
+        android:text="@string/create_copy_file_backup_str"
+        android:textSize="@dimen/text_size_48_point" />
+    
+       <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        ads:adSize="BANNER"
+        ads:adUnitId="@string/banner_ad_unit_id">
+        </com.google.android.gms.ads.AdView>
+</RelativeLayout>
