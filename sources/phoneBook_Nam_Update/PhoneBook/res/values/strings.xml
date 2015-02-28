@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">PhoneBook</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+	<string name="prefix_text_str">Nhấn vào tỉnh/TP để chỉnh mã vùng</string>
+	<string name="prefix_button_str">BẮT ĐẦU CẬP NHẬT</string>
+	<string name="prefix_button_changed_str">THỰC HIỆN CẬP NHẬT</string>
+	<string name="prefix_text_changed_str">Bên dưới là danh sách số liên lạc trong danh bạ sau khi thay đổi, vui lòng kiểm tra trước khi nhấn nút Cập Nhật.</string>
+	<string name="custom_dialog_button_yes_str">Yes</string>
+	<string name="prefix_preview_str">Preview</string>
+	<string name="prefix_preview_update_str">Prefix Update</string>
+	<string name="create_copy_file_backup_str">Tạo bản sao và backup</string>
+	<string name="restore_list_phone_str">KHÔI PHỤC DANH BẠ</string>
+	<string name="header_text_str">CHUYỂN ĐỔI ĐẦU SỐ ĐIỆN THOẠI</string>
+</resources>

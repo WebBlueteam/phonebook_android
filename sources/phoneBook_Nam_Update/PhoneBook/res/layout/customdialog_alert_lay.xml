@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/edit_name"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="#fff"
+    android:gravity="center_horizontal"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="center_vertical"
+        android:padding="10dp"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:id="@+id/custom_dialog_alert_icon_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@null"
+            android:padding="5dp"
+            android:src="@drawable/custom_alert_dialog_icon_dra" />
+
+        <TextView
+            android:id="@+id/custom_dialog_alert_title_id"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/common_button_default_notpress_col"
+            android:textSize="@dimen/text_size_60_point" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="2dp"
+        android:background="@color/common_button_default_notpress_col" />
+
+    <TextView
+        android:id="@+id/custom_dialog_alert_content_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:textSize="@dimen/text_size_60_point" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#d1d5d0"
+        android:gravity="center"
+        android:paddingTop="1dp" >
+
+        <Button
+            android:id="@+id/custom_dialog_alert_button_yes_id"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/custom_dialog_button_yes_str"
+            android:background="#d1d5d0"
+            android:textColor="#666"
+            android:padding="10dp"
+            android:textStyle="bold"
+            android:textSize="@dimen/text_size_60_point" />
+    </LinearLayout>
+
+</LinearLayout>
