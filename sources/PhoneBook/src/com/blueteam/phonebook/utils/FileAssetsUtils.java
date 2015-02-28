@@ -1,5 +1,5 @@
 /*
- * 
+ *
  */
 package com.blueteam.phonebook.utils;
 
@@ -12,16 +12,16 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.blueteam.phonebook.entities.ProvineObject;
-
 import android.content.res.AssetManager;
+
+import com.blueteam.phonebook.entities.ProvineObject;
 
 // TODO: Auto-generated Javadoc
 /**
  * The Class FileAssetsUtils.
  */
 public class FileAssetsUtils {
-	
+
 	/**
 	 * Load json from asset.
 	 *
@@ -43,7 +43,7 @@ public class FileAssetsUtils {
 		}
 		return null;
 	}
-	
+
 	/**
 	 * Gets the provice from json file.
 	 *
@@ -66,7 +66,27 @@ public class FileAssetsUtils {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		return lst;
+	}
+
+	/**
+	 * Gets the list mobile code.
+	 *
+	 * @param asset the asset
+	 * @return the list mobile code
+	 */
+	public static List<String> getListMobileCode(AssetManager asset){
+		List<String> result = new ArrayList<String>();
+		try {
+			JSONArray ja = new JSONArray(LoadJsonFromAsset("mobile_phone.json",asset));
+			for(int i = 0, size = ja.length(); i < size; i++){
+				result.add(ja.getString(i));
+			}
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
 	}
 }
