@@ -16,7 +16,7 @@
 	<string name="header_text_str">CHUYỂN ĐỔI ĐẦU SỐ ĐIỆN THOẠI</string>
 	<string name="custom_progress_loading_str">Đang tải</string>
 	<string name="custom_alert_dialog_title_str">Thông báo</string>
-	<string name="update_contact_list_surcess_str">Danh bạ của bạn đã được cập nhât.</string>
+	<string name="update_contact_list_surcess_str">Danh bạ của bạn đã được cập nhật.</string>
 	<string name="update_contact_list_fail_str">Danh bạ của bạn chưa được cập nhật. Bạn vui lòng thử lại!</string>
 	<string name="restore_contact_list_surcess_str">Danh bạ của bạn đã được khôi phục.</string>
     <string name="restore_contact_list_fail_str">Danh bạ của bạn chưa được khôi phục. Bạn vui lòng thử lại!</string>

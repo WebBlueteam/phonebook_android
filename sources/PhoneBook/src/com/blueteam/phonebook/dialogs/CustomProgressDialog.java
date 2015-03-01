@@ -3,10 +3,8 @@
  */
 package com.blueteam.phonebook.dialogs;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.app.DialogFragment;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,7 +16,6 @@ import com.blueteam.phonebook.R;
 /**
  * The Class CustomProgressDialog.
  */
-@SuppressLint("NewApi")
 public class CustomProgressDialog extends BaseDialogFragment {
 
     /** The layout. */
@@ -54,7 +51,7 @@ public class CustomProgressDialog extends BaseDialogFragment {
     public void onCreate(Bundle savedInstanceState) {
         // TODO Auto-generated method stub
         super.onCreate(savedInstanceState);
-        setStyle(DialogFragment.STYLE_NO_TITLE, android.R.style.Theme_Panel);
+        setStyle(STYLE_NO_TITLE, android.R.style.Theme_Panel);
         setCancelable(false);
     }
 
@@ -79,9 +76,9 @@ public class CustomProgressDialog extends BaseDialogFragment {
      * @param activity
      *            the activity
      */
-    public  void show(Activity activity) {
+    public  void show(FragmentActivity activity) {
         if (!findToShow(activity)) {
-            getInstance().show(activity.getFragmentManager(),
+            getInstance().show(activity.getSupportFragmentManager(),
                     TAG);
         }
     }

@@ -3,11 +3,10 @@
  */
 package com.blueteam.phonebook;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.app.Fragment;
-import android.app.FragmentTransaction;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -18,9 +17,7 @@ import com.blueteam.phonebook.utils.Constants;
 /**
  * The Class MainActivity.
  */
-@SuppressLint("NewApi")
-
-public class MainActivity extends Activity {
+public class MainActivity extends ActionBarActivity {
 
 	/* (non-Javadoc)
 	 * @see android.app.Activity#onCreate(android.os.Bundle)
@@ -65,7 +62,7 @@ public class MainActivity extends Activity {
 	 * @param tag the tag
 	 */
 	private void startFragment(Fragment fragment, boolean isAddBackStack, String tag){
-		FragmentTransaction transaction = getFragmentManager().beginTransaction();
+		FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
 		transaction.replace(R.id.fragment_container, fragment, tag);
 		if(isAddBackStack){
 			transaction.addToBackStack(null);

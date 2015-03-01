@@ -3,9 +3,8 @@
  */
 package com.blueteam.phonebook.dialogs;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -21,7 +20,6 @@ import com.blueteam.phonebook.utils.Utils;
 /**
  * The Class CustomAlertDialog.
  */
-@SuppressLint("NewApi")
 public class CustomAlertDialog extends BaseDialogFragment {
 
     /** The m title text view. */
@@ -128,9 +126,9 @@ public class CustomAlertDialog extends BaseDialogFragment {
      *
      * @param activity            the activity
      */
-	public void show(Activity activity) {
+	public void show(FragmentActivity activity) {
         if (!findToShow(activity)) {
-            instance.show(activity.getFragmentManager(), TAG);
+            instance.show(activity.getSupportFragmentManager(), TAG);
         }
     }
 

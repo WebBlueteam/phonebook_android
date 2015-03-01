@@ -3,17 +3,15 @@
  */
 package com.blueteam.phonebook.dialogs;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.app.DialogFragment;
-import android.app.FragmentManager;
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
 
 // TODO: Auto-generated Javadoc
 /**
  * The Class BaseDialogFragment.
  */
-@SuppressLint("NewApi")
 public abstract class BaseDialogFragment extends DialogFragment {
     /** The waiting dismiss. */
     protected static boolean waitingDismiss = false;
@@ -107,10 +105,10 @@ public abstract class BaseDialogFragment extends DialogFragment {
      * @param activity
      *            the activity
      */
-    public  void dismiss(Activity activity) {
+    public  void dismiss(FragmentActivity activity) {
         if (activity != null) {
             DialogFragment creditDialog = ((DialogFragment) (activity
-                    .getFragmentManager().findFragmentByTag(TAG)));
+                    .getSupportFragmentManager().findFragmentByTag(TAG)));
             if (creditDialog != null) {
                 creditDialog.dismiss();
             } else {
@@ -125,13 +123,13 @@ public abstract class BaseDialogFragment extends DialogFragment {
      * @param activity the activity
      * @return true, if successful
      */
-    protected  boolean findToShow(Activity activity){
+    protected  boolean findToShow(FragmentActivity activity){
         DialogFragment dialogFragment = ((DialogFragment) (activity
-                .getFragmentManager()
+                .getSupportFragmentManager()
                 .findFragmentByTag(TAG)));
         if (dialogFragment != null) {
             if (dialogFragment.isHidden() || !dialogFragment.isAdded()) {
-            	dialogFragment.show(activity.getFragmentManager(),
+            	dialogFragment.show(activity.getSupportFragmentManager(),
                         TAG);
             }
             return true;
