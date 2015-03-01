@@ -120,7 +120,7 @@ public class PhoneUtils {
 	public String editPhone(List<ProvineObject> prefix, String phoneNumber) {
 		for (int j = 0; j < prefix.size(); j++) {
 			if (phoneNumber.startsWith(prefix.get(j).getOldCode())) {
-				String new_phone = prefix.get(j).getNewCode()
+				String new_phone = "0" + prefix.get(j).getNewCode()
 						+ phoneNumber.substring(prefix.get(j).getOldCode().length());
 				return new_phone;
 			}

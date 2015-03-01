@@ -119,7 +119,13 @@ public class MainChangePhoneFragment extends Fragment implements OnClickListener
 				}
 			}
 		});
+	}
+
+	@Override
+	public void onResume() {
+		// TODO Auto-generated method stub
 		new getListContact().execute();
+		super.onResume();
 	}
 
 	/* (non-Javadoc)
