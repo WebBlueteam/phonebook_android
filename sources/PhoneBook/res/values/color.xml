@@ -10,4 +10,6 @@
     <color name="bg_item_icon_3">#2972fd</color>
     <color name="common_button_default_notpress_col">#ff3498db</color>
     <color name="common_button_default_press_col">#cd3498db</color>
+    <color name="white_col">#ffffff</color>
+    <color name="gray_col">#cdd1d5d0</color>
 </resources>

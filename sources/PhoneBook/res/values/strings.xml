@@ -9,6 +9,7 @@
 	<string name="prefix_button_changed_str">THỰC HIỆN CẬP NHẬT</string>
 	<string name="prefix_text_changed_str">Bên dưới là danh sách số liên lạc trong danh bạ sau khi thay đổi, vui lòng kiểm tra trước khi nhấn nút Cập Nhật.</string>
 	<string name="custom_dialog_button_yes_str">Yes</string>
+    <string name="custom_dialog_button_no_str">No</string>
 	<string name="prefix_preview_str">Preview</string>
 	<string name="prefix_preview_update_str">Prefix Update</string>
 	<string name="create_copy_file_backup_str">Tạo bản sao và backup</string>
@@ -20,6 +21,9 @@
 	<string name="update_contact_list_fail_str">Danh bạ của bạn chưa được cập nhật. Bạn vui lòng thử lại!</string>
 	<string name="restore_contact_list_surcess_str">Danh bạ của bạn đã được khôi phục.</string>
     <string name="restore_contact_list_fail_str">Danh bạ của bạn chưa được khôi phục. Bạn vui lòng thử lại!</string>
-	<string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
+	<string name="banner_ad_unit_id">ca-app-pub-8448744551419753/7737592029</string>
+	<string name="restore_comfirm_content_str">Bạn có chắc chắn muốn khôi phục lại danh bạ!</string>
+	<string name="update_comfirm_content_str">Bạn có chắc chắn muốn cập nhật danh bạ!</string>
+	<string name="custom_comfirm_dialog_title_str">Xác nhận</string>
 	
 </resources>

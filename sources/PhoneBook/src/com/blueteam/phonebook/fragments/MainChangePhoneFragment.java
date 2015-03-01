@@ -23,6 +23,8 @@ import android.widget.TextView;
 import com.blueteam.phonebook.R;
 import com.blueteam.phonebook.adapters.PhoneBookAdapter;
 import com.blueteam.phonebook.dialogs.CustomAlertDialog;
+import com.blueteam.phonebook.dialogs.CustomConfirmDialog;
+import com.blueteam.phonebook.dialogs.CustomConfirmDialog.ConfirmDialogClickListener;
 import com.blueteam.phonebook.dialogs.CustomProgressDialog;
 import com.blueteam.phonebook.entities.ContactObject;
 import com.blueteam.phonebook.utils.ContactUtils;
@@ -127,12 +129,46 @@ public class MainChangePhoneFragment extends Fragment implements OnClickListener
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
 		switch (v.getId()) {
-		case R.id.restore_list_phone_id:
-			new reStoreListContact().execute();
+		case R.id.restore_list_phone_id:{
+			final CustomConfirmDialog dialog = CustomConfirmDialog.getInstance(
+					getString(R.string.custom_comfirm_dialog_title_str),
+					getString(R.string.restore_comfirm_content_str), false);
+			dialog.setOnClickConfirmDialogListener(new ConfirmDialogClickListener() {
+
+				@Override
+				public void onClickConfirmDialogListener(boolean confirm) {
+					// TODO Auto-generated method stub
+					if(confirm){
+						dialog.dismiss(getActivity());
+						new reStoreListContact().execute();
+					}else{
+						dialog.dismiss(getActivity());
+					}
+				}
+			});
+			dialog.show(getActivity());
 			break;
-		case R.id.prefix_start_update_id:
-			new updateListContact().execute();
+		}
+		case R.id.prefix_start_update_id:{
+			final CustomConfirmDialog dialog = CustomConfirmDialog.getInstance(
+					getString(R.string.custom_comfirm_dialog_title_str),
+					getString(R.string.update_comfirm_content_str), false);
+			dialog.setOnClickConfirmDialogListener(new ConfirmDialogClickListener() {
+
+				@Override
+				public void onClickConfirmDialogListener(boolean confirm) {
+					// TODO Auto-generated method stub
+					if(confirm){
+						dialog.dismiss(getActivity());
+						new updateListContact().execute();
+					}else{
+						dialog.dismiss(getActivity());
+					}
+				}
+			});
+			dialog.show(getActivity());
 			break;
+		}
 		default:
 			break;
 		}
