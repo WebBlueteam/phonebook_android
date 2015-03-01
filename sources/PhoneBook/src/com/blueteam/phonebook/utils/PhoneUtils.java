@@ -66,7 +66,7 @@ public class PhoneUtils {
 					if (newPhoneNumber.startsWith(mListMobileCode.get(j))) {
 						k++;
 						break;
-					}
+					} 
 				}
 				if (k == 0) {
 					temp.add(phone.get(i));
@@ -119,15 +119,35 @@ public class PhoneUtils {
 	 */
 	public String editPhone(List<ProvineObject> prefix, String phoneNumber) {
 		for (int j = 0; j < prefix.size(); j++) {
-			if (phoneNumber.startsWith(prefix.get(j).getOldCode())) {
+			if( checkEditedPhone(prefix, phoneNumber) == true ){
+				return phoneNumber;
+			}
+			if ( phoneNumber.startsWith(prefix.get(j).getOldCode()) ) {
 				String new_phone = "0" + prefix.get(j).getNewCode()
 						+ phoneNumber.substring(prefix.get(j).getOldCode().length());
+				return new_phone;
+			}
+			
+			else if ( phoneNumber.startsWith("0"+prefix.get(j).getOldCode())) {
+				String new_phone = "0" + prefix.get(j).getNewCode()
+						+ phoneNumber.substring(prefix.get(j).getOldCode().length()+1);
 				return new_phone;
 			}
 		}
 		return phoneNumber;
 	}
-
+	public boolean checkEditedPhone( List<ProvineObject> prefix, String phoneNumber ) {
+		for (int j = 0; j < prefix.size(); j++) {
+			if ( phoneNumber.startsWith("0"+prefix.get(j).getNewCode()) ) {
+				return true;
+			} else if (phoneNumber.startsWith("+84"+prefix.get(j).getNewCode())){
+				return true;
+			} else if (phoneNumber.startsWith("84"+prefix.get(j).getNewCode())){
+				return true;
+			}
+		}
+		return false;
+	}
 	public String normalizePhoneNumber(String iPhoneNumber){
     	String iReplace = iPhoneNumber.replace("(", " ");
 		String iReplace1 = iReplace.replace(")", " ");
