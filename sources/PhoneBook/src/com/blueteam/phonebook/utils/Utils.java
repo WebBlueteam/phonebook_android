@@ -21,6 +21,7 @@ import android.graphics.Typeface;
 import android.os.Build;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -70,6 +71,8 @@ public class Utils {
                     ((EditText)view).setTypeface(font);
                 }else if(view instanceof Button){
                     ((Button)view).setTypeface(font);
+                }else if(view instanceof CheckBox){
+                	((CheckBox)view).setTypeface(font);
                 }
             }
         }

@@ -62,6 +62,7 @@ public class MainChangePhoneFragment extends Fragment implements OnClickListener
 	/** The m is backup. */
 	private boolean mIsBackup = true;
 
+	private TextView header;
 	/* (non-Javadoc)
 	 * @see android.app.Fragment#onCreateView(android.view.LayoutInflater, android.view.ViewGroup, android.os.Bundle)
 	 */
@@ -96,11 +97,12 @@ public class MainChangePhoneFragment extends Fragment implements OnClickListener
 		mRestoreBtn = (Button)v.findViewById(R.id.restore_list_phone_id);
 		mBackupBtn = (Button)v.findViewById(R.id.prefix_start_update_id);
 		mCheckBackupContact = (CheckBox)v.findViewById(R.id.prefix_backup_id);
+		header = (TextView)v.findViewById(R.id.common_header_title_id);
 
 		mAdapter = new PhoneBookAdapter(getActivity(), mListContactObject);
 		mListViewContact.setAdapter(mAdapter);
 
-		Utils.setTypefaceRoboto(getActivity(), mTextStatus);
+		Utils.setTypefaceRoboto(getActivity(), mTextStatus, mCheckBackupContact, header, mBackupBtn, mRestoreBtn);
 
 		mRestoreBtn.setOnClickListener(this);
 		mBackupBtn.setOnClickListener(this);
